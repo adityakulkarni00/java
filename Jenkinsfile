@@ -3,7 +3,7 @@ pipeline {
     // The agent name must match with the jenkins node name (Manage jenkins -> Nodes)
     agent {
         node {
-            label 'Maven-node'
+            label 'maven-node'
         }
     }
 
@@ -14,7 +14,7 @@ pipeline {
 
     // Define environment variables
     environment {
-        APP_NAME = "ADITYA_JAVAAPP"
+        APP_NAME = "JAVAAPP"
         APP_ENV  = "PRODUCTION"
     }
 
@@ -27,17 +27,17 @@ pipeline {
             }
         }
 
-        // stage('SonarQube Analysis') {
-          // environment {
+        stage('SonarQube Analysis') {
+          environment {
             // Tool name must match with Jenkins Tools for Sonar Scanner - Manage Jenkins >> Tools
-            // scannerHome = tool 'sonar-scanner'
-          // }
-          // steps {
+            scannerHome = tool 'sonar-scanner'
+          }
+          steps {
             // Env value must match with the Sonar Server Name - Manage Jenkins >> System
-            // withSonarQubeEnv('sonarqube-server') {
-              // sh "${scannerHome}/bin/sonar-scanner"
+            withSonarQubeEnv('sonarqube-server') {
+              sh "${scannerHome}/bin/sonar-scanner"
             }
           }
-        // }
-    // }
-// }
+        }
+    }
+} 
