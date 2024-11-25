@@ -9,7 +9,7 @@ pipeline {
 
     // The tool name must match with the jenkins tools (global configuration) variable names
     tools {
-        maven 'maven-3.9.8'
+        maven 'Maven-3.9.8'
     }
 
     // Define environment variables
