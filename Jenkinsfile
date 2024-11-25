@@ -13,10 +13,10 @@ pipeline {
     }
 
     // Define environment variables
-    environment {
-        APP_NAME = "JAVAAPP"
-        APP_ENV  = "PRODUCTION"
-    }
+//    environment {
+//        APP_NAME = "JAVA"
+//        APP_ENV  = "PRODUCTION"
+//    }
 
     // Cleanup the jenkins workspace before building an Application
     stages {
